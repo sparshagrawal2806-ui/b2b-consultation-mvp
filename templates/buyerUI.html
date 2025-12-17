@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZ CONNECT | Buyer Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e8f9f9, #cdedf0);
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(16px);
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #6ddbd1, #aeecef);
+      transition: 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body class="flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 h-screen glass shadow-xl p-6 hidden md:block">
+    <div class="flex items-center space-x-3 mb-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#80DED9] to-[#AEECEF]"></div>
+      <h2 class="text-xl font-semibold text-gray-800">EZ CONNECT</h2>
+    </div>
+
+    <nav class="space-y-4 text-gray-700 font-medium">
+      <a class="block py-2 px-4 rounded-xl bg-white/70">🏠 Dashboard</a>
+      <a class="block py-2 px-4 rounded-xl hover:bg-white/60">🛒 Marketplace</a>
+      <a class="block py-2 px-4 rounded-xl hover:bg-white/60">📦 My Orders</a>
+      <a class="block py-2 px-4 rounded-xl hover:bg-white/60">⭐ Saved Suppliers</a>
+      <a class="block py-2 px-4 rounded-xl hover:bg-white/60">🧠 Consultation</a>
+      <a class="block py-2 px-4 rounded-xl hover:bg-white/60">⚙️ Settings</a>
+    </nav>
+
+    <button class="mt-10 w-full py-2 rounded-full border border-gray-400 hover:bg-white">
+      Logout
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 md:p-10">
+
+    <!-- Top Bar -->
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-800" data-aos="fade-right">
+        Buyer Dashboard
+      </h1>
+
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-700 font-medium">Hello, Shreyash</span>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#80DED9] to-[#AEECEF]"></div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <section class="grid md:grid-cols-3 gap-6 mb-10">
+      <!-- Card -->
+      <div class="glass rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="fade-up">
+        <h3 class="text-gray-600">Total Orders</h3>
+        <p class="text-3xl font-bold text-gray-900 mt-2">32</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="150">
+        <h3 class="text-gray-600">Saved Suppliers</h3>
+        <p class="text-3xl font-bold text-gray-900 mt-2">14</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-gray-600">Active Chats</h3>
+        <p class="text-3xl font-bold text-gray-900 mt-2">3</p>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="mb-10" data-aos="fade-up">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h2>
+
+      <div class="flex flex-wrap gap-4">
+        <button class="btn-gradient px-6 py-3 rounded-xl text-white font-semibold">
+          🔍 Search Raw Materials
+        </button>
+
+        <button class="btn-gradient px-6 py-3 rounded-xl text-white font-semibold">
+          📂 Browse Categories
+        </button>
+
+        <button class="btn-gradient px-6 py-3 rounded-xl text-white font-semibold">
+          💬 Consult Experts
+        </button>
+      </div>
+    </section>
+
+    <!-- Recommended Suppliers -->
+    <section class="mb-10" data-aos="fade-up">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">Recommended Suppliers</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <!-- Supplier 1 -->
+    <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+      <div class="w-12 h-12 mb-3">
+        <img src="photo/industrial-plant-for-the-production-of-sheet-metal-in-a-steel-mill-storage-of-sheet-rolls-generative-a-photo.jpeg" alt="TransSteel Logo" 
+             class="w-full h-full object-cover rounded-full shadow">
+      </div>
+      <h3 class="text-lg font-semibold text-gray-800">TransSteel Ltd.</h3>
+      <p class="text-gray-600 text-sm">
+        High-quality steel sheets and rods.
+      </p>
+      <button class="mt-4 px-4 py-2 rounded-xl border bg-white/60 hover:bg-white transition">
+        View Profile
+      </button>
+    </div>
+
+    <!-- Supplier 2 -->
+    <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+      <div class="w-12 h-12 mb-3">
+        <img src="photo/logo-vector-graphic-branding-letter-element_808505-1621.avif" alt="ChemCo Logo" 
+             class="w-full h-full object-cover rounded-full shadow">
+      </div>
+      <h3 class="text-lg font-semibold text-gray-800">ChemCo Global</h3>
+      <p class="text-gray-600 text-sm">
+        Industrial chemicals and solvents.
+      </p>
+      <button class="mt-4 px-4 py-2 rounded-xl border bg-white/60 hover:bg-white transition">
+        View Profile
+      </button>
+    </div>
+
+    <!-- Supplier 3 -->
+    <div class="glass p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+      <div class="w-12 h-12 mb-3">
+        <img src="photo/letter-p-plastic-bottle-vector-260nw-1486207787.webp" alt="Plastico India Logo" 
+             class="w-full h-full object-cover rounded-full shadow">
+      </div>
+      <h3 class="text-lg font-semibold text-gray-800">Plastico India</h3>
+      <p class="text-gray-600 text-sm">
+        Premium plastic granules and polymers.
+      </p>
+      <button class="mt-4 px-4 py-2 rounded-xl border bg-white/60 hover:bg-white transition">
+        View Profile
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Recent Orders -->
+    <section data-aos="fade-up">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Orders</h2>
+
+      <div class="glass rounded-2xl shadow-md p-6 overflow-x-auto">
+        <table class="min-w-full text-left">
+          <thead>
+            <tr class="text-gray-600 border-b">
+              <th class="py-3">Order ID</th>
+              <th class="py-3">Supplier</th>
+              <th class="py-3">Product</th>
+              <th class="py-3">Qty</th>
+              <th class="py-3">Status</th>
+              <th class="py-3">Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="text-gray-700">
+            <tr class="border-b">
+              <td class="py-3">#3021</td>
+              <td>TransSteel Ltd.</td>
+              <td>Steel Rods</td>
+              <td>50</td>
+              <td class="text-yellow-600 font-medium">Processing</td>
+              <td>
+                <button class="px-3 py-1 rounded-lg bg-white/70 border hover:bg-white">Track</button>
+              </td>
+            </tr>
+
+            <tr class="border-b">
+              <td class="py-3">#3016</td>
+              <td>ChemCo Global</td>
+              <td>Solvent A2</td>
+              <td>10</td>
+              <td class="text-green-600 font-medium">Delivered</td>
+              <td>
+                <button class="px-3 py-1 rounded-lg bg-white/70 border hover:bg-white">View</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="py-3">#3008</td>
+              <td>Plastico India</td>
+              <td>Plastic Granules</td>
+              <td>200</td>
+              <td class="text-green-600 font-medium">Delivered</td>
+              <td>
+                <button class="px-3 py-1 rounded-lg bg-white/70 border hover:bg-white">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+    });
+  </script>
+
+</body>
+
+</html>

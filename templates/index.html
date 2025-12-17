@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZ CONNECT | Connecting Businesses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Alpine.js for Mobile Menu -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e8f9f9, #cdedf0);
+        overflow-x: hidden;
+      }
+
+      .fade-in {
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-gradient {
+        background: linear-gradient(90deg, #6ddbd1, #aeecef);
+        transition: all 0.3s ease;
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header
+      x-data="{ open: false }"
+      class="w-full bg-transparent z-50 px-6 sm:px-10 md:px-16 py-4 flex flex-wrap justify-between items-center"
+    >
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <div
+          class="w-8 h-8 rounded-full bg-gradient-to-br from-[#80DED9] to-[#AEECEF]"
+        ></div>
+        <span class="font-semibold text-gray-700 text-lg">EZ CONNECT</span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <a href="#" class="hover:text-gray-900 transition">Home</a>
+        <a href="marketplace.html" class="hover:text-gray-900 transition">Marketplace</a>
+        <a href="#" class="hover:text-gray-900 transition">Suppliers</a>
+        <a href="#" class="hover:text-gray-900 transition">Data & Insights</a>
+        <a href="#" class="hover:text-gray-900 transition">Consultation</a>
+        <a href="#" class="hover:text-gray-900 transition">Contact</a>
+      </nav>
+
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex space-x-3">
+        <button onclick="window.location.href='registration.html' "
+          class="px-5 py-2 rounded-full btn-gradient text-white font-semibold"
+        >
+          Join as Supplier
+        </button>
+        <button onclick="window.location.href='login.html' "
+          class="px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+        >
+          Login
+        </button>
+      </div>
+
+      <!-- Hamburger Icon -->
+      <button @click="open = !open" class="md:hidden focus:outline-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :class="{'rotate-90': open}"
+          class="w-7 h-7 text-gray-700 transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        x-show="open"
+        x-transition
+        class="w-full md:hidden mt-4 bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg p-4 space-y-3 text-gray-700 font-medium"
+      >
+        <a href="#" class="block hover:text-gray-900 transition">Home</a>
+        <a href="marketplace.html" class="block hover:text-gray-900 transition">Marketplace</a>
+        <a href="#" class="block hover:text-gray-900 transition">Suppliers</a>
+        <a href="#" class="block hover:text-gray-900 transition"
+          >Data & Insights</a
+        >
+        <a href="#" class="block hover:text-gray-900 transition"
+          >Consultation</a
+        >
+        <a href="#" class="block hover:text-gray-900 transition">Contact</a>
+        <hr class="border-gray-300/50" />
+        <button onclick="window.location.href='registration.html' "
+          class="px-5 py-2 rounded-full btn-gradient text-white font-semibold"
+        >
+          Join as Supplier
+        </button>
+        <button onclick="window.location.href='login.html' "
+          class="px-5 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+        >
+          Login
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main
+      class="flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-32 py-12 sm:py-16 fade-in"
+    >
+      <!-- Left Text -->
+      <div class="text-center md:text-left md:w-1/2 space-y-6">
+        <h2
+          class="text-gray-600 tracking-widest uppercase text-sm sm:text-base"
+          data-aos="fade-down"
+        >
+          Connecting Small Businesses
+        </h2>
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          With Trusted Suppliers
+        </h1>
+        <p
+          class="text-gray-500 text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Discover verified raw material suppliers or showcase your products to
+          growing small businesses — all in one place.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-4"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          <button onclick="window.location.href='registration.html' "
+            class="px-6 py-2 rounded-full btn-gradient text-white font-semibold"
+          >
+            Join as Supplier
+          </button>
+          <button onclick="window.location.href='marketplace.html' "
+            class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+          >
+            Find Materials
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Image / Stats -->
+      <div
+        class="relative w-full md:w-1/2 flex justify-center mb-10 md:mb-0"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <img
+          src="pngegg.png"
+          alt="Marketplace Illustration"
+          class="w-4/5 sm:w-3/4 md:w-full max-w-md animate-[float_4s_ease-in-out_infinite]"
+          data-aos="fade-left"
+        />
+        <!-- Stats Box (responsive: static on mobile, absolute on md+) -->
+        <div
+          class="w-full md:w-auto md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 bg-gradient-to-br from-[#f0fafb] to-[#e1f3f4] backdrop-blur-md p-4 rounded-xl flex flex-wrap justify-center gap-4 shadow-md mt-6 md:mt-0 z-10"
+        >
+          <div class="text-center min-w-[80px]">
+            <p class="text-gray-900 font-semibold text-lg">500+</p>
+            <p class="text-gray-500 text-sm">Suppliers</p>
+          </div>
+          <div class="text-center min-w-[80px]">
+            <p class="text-gray-900 font-semibold text-lg">1,200+</p>
+            <p class="text-gray-500 text-sm">Products</p>
+          </div>
+          <div class="text-center min-w-[80px]">
+            <p class="text-gray-900 font-semibold text-lg">24/7</p>
+            <p class="text-gray-500 text-sm">Support</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- How It Works -->
+    <section
+      class="px-6 sm:px-10 md:px-16 lg:px-32 py-16 bg-transparent fade-in"
+      data-aos="fade-up"
+    >
+      <h2
+        class="text-2xl sm:text-3xl font-bold text-gray-800 mb-10 text-center"
+      >
+        How EZ CONNECT Works
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 text-center">
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-[#f0fafb] to-[#e1f3f4] shadow-sm hover:shadow-md transition duration-300"
+          data-aos="fade-up"
+        >
+          <div class="text-4xl mb-3">📝</div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">1. Register</h3>
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Sign up as a <strong>Buyer</strong> or <strong>Supplier</strong> to
+            access the marketplace.
+          </p>
+        </div>
+
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-[#f0fafb] to-[#e1f3f4] shadow-sm hover:shadow-md transition duration-300"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <div class="text-4xl mb-3">🔗</div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">2. Connect</h3>
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Browse verified listings and connect directly with trusted suppliers
+            or businesses.
+          </p>
+        </div>
+
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-[#f0fafb] to-[#e1f3f4] shadow-sm hover:shadow-md transition duration-300"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="text-4xl mb-3">🚀</div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">3. Grow</h3>
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Leverage data insights and consultation services to scale your
+            business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="px-6 sm:px-10 md:px-16 lg:px-32 py-10 bg-gradient-to-t from-[#f0fafb] to-transparent text-gray-600 text-sm"
+      data-aos="fade-up"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+      >
+        <div class="space-y-2">
+          <h3 class="font-semibold text-gray-800 text-lg">EZ CONNECT</h3>
+          <p class="max-w-sm">
+            Building bridges between small businesses and trusted raw-material
+            suppliers. Your growth, our connection.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center md:justify-start space-x-4 font-medium"
+        >
+          <a href="#" class="hover:text-gray-800 transition">Home</a>
+          <a href="#" class="hover:text-gray-800 transition">Marketplace</a>
+          <a href="#" class="hover:text-gray-800 transition">Suppliers</a>
+          <a href="#" class="hover:text-gray-800 transition">Contact</a>
+        </div>
+
+        <div class="flex justify-center space-x-4">
+          <a
+            href="#"
+            class="hover:text-gray-800 transition"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 md:w-6 md:h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.271c-.966 0-1.75-.795-1.75-1.771 0-.975.784-1.771 1.75-1.771s1.75.796 1.75 1.771c0 .976-.784 1.771-1.75 1.771zm13.5 10.271h-3v-4.604c0-1.099-.021-2.513-1.531-2.513-1.534 0-1.77 1.197-1.77 2.433v4.684h-3v-9h2.879v1.229h.041c.401-.759 1.381-1.56 2.845-1.56 3.042 0 3.605 2.004 3.605 4.611v4.72z"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="hover:text-gray-800 transition"
+            aria-label="Twitter"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 md:w-6 md:h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.611 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.955-2.178-1.55-3.594-1.55-2.717 0-4.924 2.206-4.924 4.923 0 .386.044.762.128 1.124-4.092-.205-7.725-2.165-10.157-5.144-.424.729-.667 1.577-.667 2.476 0 1.707.87 3.213 2.188 4.096-.807-.026-1.566-.247-2.229-.616v.062c0 2.385 1.697 4.374 3.946 4.825-.413.112-.849.171-1.296.171-.317 0-.626-.031-.928-.088.627 1.956 2.444 3.379 4.6 3.419-1.68 1.318-3.801 2.104-6.104 2.104-.396 0-.788-.023-1.175-.069 2.179 1.398 4.768 2.213 7.557 2.213 9.054 0 14.009-7.496 14.009-13.986 0-.213-.004-.425-.013-.636.962-.694 1.797-1.562 2.457-2.549z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 border-t border-gray-200/60 pt-4 text-center text-xs text-gray-500"
+      >
+        © 2025 EZ CONNECT · All Rights Reserved
+      </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        easing: "ease-in-out",
+      });
+    </script>
+  </body>
+</html>

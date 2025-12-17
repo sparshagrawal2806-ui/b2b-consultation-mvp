@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZ CONNECT | Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e8f9f9, #cdedf0);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #6ddbd1, #aeecef);
+      transition: all 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(18px);
+    }
+
+    .tab-fade {
+      animation: fadeSlide 0.45s ease;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center px-6 py-10">
+
+  <!-- Main Card -->
+  <div class="w-full max-w-3xl glass rounded-3xl shadow-xl p-10" data-aos="zoom-in">
+
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-[#80DED9] to-[#AEECEF]"></div>
+      <h1 class="text-3xl font-bold text-gray-800 mt-3">Create Your Account</h1>
+      <p class="text-gray-600">Join EZ CONNECT as a Buyer or Supplier</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex justify-center mb-8">
+      <button id="buyerTab"
+        class="px-6 py-2 rounded-full font-medium text-gray-700 border border-gray-300 bg-white/70 hover:bg-white transition">
+        Buyer
+      </button>
+
+      <button id="supplierTab"
+        class="px-6 py-2 rounded-full font-medium text-gray-700 border border-gray-300 bg-transparent hover:bg-white/40 transition ml-3">
+        Supplier
+      </button>
+    </div>
+
+    <!-- Buyer Registration Form -->
+    <form id="buyerForm" class="space-y-5">
+      <div>
+        <label class="font-medium text-gray-700">Full Name</label>
+        <input type="text" required
+          class="w-full mt-1 px-4 py-3 rounded-xl border border-gray-300 bg-white/70 focus:ring-2 focus:ring-teal-300 outline-none"
+          placeholder="John Doe" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Email</label>
+        <input type="email" required
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 focus:ring-2 focus:ring-teal-300 outline-none"
+          placeholder="you@example.com" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Business Name</label>
+        <input type="text"
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="ABC Manufacturing Pvt Ltd" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Phone Number</label>
+        <input type="text"
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="+91 9876543210" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Password</label>
+        <input type="password" required
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="••••••••" />
+      </div>
+
+      <button class="w-full py-3 rounded-full btn-gradient text-white font-semibold text-lg">
+        Create Buyer Account
+      </button>
+    </form>
+
+    <!-- Supplier Registration Form -->
+    <form id="supplierForm" class="space-y-5 hidden">
+
+      <div>
+        <label class="font-medium text-gray-700">Full Name</label>
+        <input type="text" required
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="Rahul Verma" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Email</label>
+        <input type="email" required
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="supplier@example.com" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Company Name</label>
+        <input type="text"
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="RawMats Suppliers Co." />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Business Category</label>
+        <select
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none">
+          <option>Steel</option>
+          <option>Chemicals</option>
+          <option>Electronics</option>
+          <option>Food & Packaging</option>
+          <option>Other Materials</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Phone Number</label>
+        <input type="text"
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="+91 9876543210" />
+      </div>
+
+      <div>
+        <label class="font-medium text-gray-700">Password</label>
+        <input type="password"
+          class="w-full mt-1 px-4 py-3 rounded-xl border bg-white/70 border-gray-300 outline-none"
+          placeholder="••••••••" />
+      </div>
+
+      <button class="w-full py-3 rounded-full btn-gradient text-white font-semibold text-lg">
+        Create Supplier Account
+      </button>
+    </form>
+
+    <p class="text-center text-gray-700 mt-6">
+      Already have an account?
+      <a href="login.html" class="text-teal-500 hover:underline">Login here</a>
+    </p>
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const buyerTab = document.getElementById("buyerTab");
+    const supplierTab = document.getElementById("supplierTab");
+
+    const buyerForm = document.getElementById("buyerForm");
+    const supplierForm = document.getElementById("supplierForm");
+
+    function showBuyer() {
+      buyerTab.classList.add("bg-white/70");
+      supplierTab.classList.remove("bg-white/70");
+
+      supplierForm.classList.add("hidden");
+      buyerForm.classList.remove("hidden");
+
+      buyerForm.classList.add("tab-fade");
+      setTimeout(() => buyerForm.classList.remove("tab-fade"), 500);
+    }
+
+    function showSupplier() {
+      supplierTab.classList.add("bg-white/70");
+      buyerTab.classList.remove("bg-white/70");
+
+      buyerForm.classList.add("hidden");
+      supplierForm.classList.remove("hidden");
+
+      supplierForm.classList.add("tab-fade");
+      setTimeout(() => supplierForm.classList.remove("tab-fade"), 500);
+    }
+
+    buyerTab.onclick = showBuyer;
+    supplierTab.onclick = showSupplier;
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+    });
+  </script>
+
+</body>
+
+</html>

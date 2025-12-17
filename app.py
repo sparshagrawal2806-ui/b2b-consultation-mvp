@@ -1,8 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 import os
-from flask import redirect
-
 
 app = Flask(__name__)
 
@@ -13,20 +11,19 @@ def get_connection():
     return sqlite3.connect(DB_NAME)
 
 def init_db():
-    if not os.path.exists(DB_NAME):
-        conn = get_connection()
-        cur = conn.cursor()
+    conn = get_connection()
+    cur = conn.cursor()
 
-        cur.execute("""
-        CREATE TABLE products (
-            id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL,
-            price INTEGER NOT NULL
-        )
-        """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS products (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        price INTEGER NOT NULL
+    )
+    """)
 
-        conn.commit()
-        conn.close()
+    conn.commit()
+    conn.close()
 
 # ---------- ROUTES ----------
 @app.route("/")
@@ -50,7 +47,7 @@ def consult():
             verdict=verdict
         )
 
-    return "Please submit the form from Home page"
+    return render_template("home.html")
 
 
 @app.route("/add-product", methods=["GET", "POST"])
@@ -68,7 +65,10 @@ def add_product():
         conn.commit()
         conn.close()
 
+        return redirect("/products")
+
     return render_template("add_product.html")
+
 
 @app.route("/products")
 def products():
@@ -118,7 +118,8 @@ def update_product(id):
 # ---------- MAIN ----------
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=10000)
+    app.run(host="0.0.0.0", port=10000, debug=True)
+
 
 
 
