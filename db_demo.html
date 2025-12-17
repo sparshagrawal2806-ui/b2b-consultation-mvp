@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Demo</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📊 Database Demo – Product Table</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+        <td>{{ p[0] }}</td>
+        <td>{{ p[1] }}</td>
+
+        <td>
+            <form action="/update/{{ p[0] }}" method="post">
+                <input type="number" name="price" value="{{ p[2] }}" required>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+
+        <td>—</td>
+
+        <td>
+            <a href="/delete/{{ p[0] }}">❌ Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">🏠 Home</a> |
+<a href="/add-product">➕ Add Product</a>
+
+</body>
+</html>

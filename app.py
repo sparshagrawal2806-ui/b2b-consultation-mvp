@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import sqlite3
 import os
+from flask import redirect
+
 
 app = Flask(__name__)
 
@@ -77,6 +79,41 @@ def products():
     conn.close()
 
     return render_template("products.html", products=data)
+
+# ---------- DATABASE DEMO ----------
+@app.route("/db-demo")
+def db_demo():
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM products")
+    data = cur.fetchall()
+    conn.close()
+    return render_template("db_demo.html", products=data)
+
+
+@app.route("/delete/<int:id>")
+def delete_product(id):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM products WHERE id = ?", (id,))
+    conn.commit()
+    conn.close()
+    return redirect("/db-demo")
+
+
+@app.route("/update/<int:id>", methods=["POST"])
+def update_product(id):
+    new_price = request.form["price"]
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE products SET price = ? WHERE id = ?",
+        (new_price, id)
+    )
+    conn.commit()
+    conn.close()
+    return redirect("/db-demo")
+
 
 # ---------- MAIN ----------
 if __name__ == "__main__":
