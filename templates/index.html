@@ -197,12 +197,13 @@
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <img
-          src="pngegg.png"
-          alt="Marketplace Illustration"
-          class="w-4/5 sm:w-3/4 md:w-full max-w-md animate-[float_4s_ease-in-out_infinite]"
-          data-aos="fade-left"
+      <img
+        src="{{ url_for('static', filename='images/pngegg.png') }}"
+        alt="Marketplace Illustration"
+        class="w-4/5 sm:w-3/4 md:w-full max-w-md animate-[float_4s_ease-in-out_infinite]"
+        data-aos="fade-left"
         />
+
         <!-- Stats Box (responsive: static on mobile, absolute on md+) -->
         <div
           class="w-full md:w-auto md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 bg-gradient-to-br from-[#f0fafb] to-[#e1f3f4] backdrop-blur-md p-4 rounded-xl flex flex-wrap justify-center gap-4 shadow-md mt-6 md:mt-0 z-10"

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZ CONNECT | Admin Dashboard</title>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --c1: #AEECEF;
+      --c2: #80DED9;
+      --c3: #6D9DC5;
+      --c4: #53599A;
+      --c5: #068D9D;
+      --dark: #0b132b;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f6fa;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      position: fixed;
+      background: linear-gradient(180deg, var(--c4), var(--c5));
+      padding: 20px 15px;
+      color: white;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Top bar */
+    .topbar {
+      margin-left: 260px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--c3), var(--c5));
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Dashboard Content */
+    .content {
+      margin-left: 260px;
+      padding: 30px;
+    }
+
+    .stat-box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .stat-icon {
+      font-size: 40px;
+      color: var(--c5);
+    }
+
+    .table-box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>EZ CONNECT</h2>
+    <a href="#" class="active"><i class="fa-solid fa-chart-simple me-2"></i> Dashboard</a>
+    <a href="#"><i class="fa-solid fa-store me-2"></i> Suppliers</a>
+    <a href="#"><i class="fa-solid fa-users me-2"></i> Buyers</a>
+    <a href="#"><i class="fa-solid fa-box me-2"></i> Products</a>
+    <a href="#"><i class="fa-solid fa-user-shield me-2"></i> Admins</a>
+    <a href="#"><i class="fa-solid fa-gear me-2"></i> Settings</a>
+    <a href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    Admin Dashboard
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Dashboard Stats -->
+    <div class="row g-4 mb-4">
+      
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="stat-box">
+          <div class="d-flex justify-content-between">
+            <h4>Total Buyers</h4>
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <h2 class="mt-3">1,248</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="stat-box">
+          <div class="d-flex justify-content-between">
+            <h4>Total Suppliers</h4>
+            <div class="stat-icon"><i class="fa-solid fa-store"></i></div>
+          </div>
+          <h2 class="mt-3">589</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-box">
+          <div class="d-flex justify-content-between">
+            <h4>Pending Approvals</h4>
+            <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+          </div>
+          <h2 class="mt-3">34</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="450">
+        <div class="stat-box">
+          <div class="d-flex justify-content-between">
+            <h4>Total Products</h4>
+            <div class="stat-icon"><i class="fa-solid fa-box"></i></div>
+          </div>
+          <h2 class="mt-3">3,942</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Supplier Approval Table -->
+    <div class="table-box mb-4" data-aos="fade-up">
+      <h4>Pending Supplier Approvals</h4>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Business Name</th>
+            <th>Category</th>
+            <th>Documents</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Rahul Singh</td>
+            <td>Kanpur Plastics</td>
+            <td>Plastic Products</td>
+            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+            <td>
+              <button class="btn btn-success btn-sm">Approve</button>
+              <button class="btn btn-danger btn-sm">Reject</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Aisha Khan</td>
+            <td>Royal Fabrics</td>
+            <td>Textile</td>
+            <td><button class="btn btn-sm btn-outline-primary">View</button></td>
+            <td>
+              <button class="btn btn-success btn-sm">Approve</button>
+              <button class="btn btn-danger btn-sm">Reject</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Buyer List -->
+    <div class="table-box mb-4" data-aos="fade-up">
+      <h4>Recent Buyers</h4>
+      <table class="table table-hover mt-3">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Business Type</th>
+            <th>Region</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Amit Verma</td>
+            <td>General Store</td>
+            <td>Lucknow</td>
+            <td>9876543210</td>
+          </tr>
+
+          <tr>
+            <td>Simran Sharma</td>
+            <td>Bakery</td>
+            <td>Noida</td>
+            <td>9123456780</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>
