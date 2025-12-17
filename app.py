@@ -26,10 +26,13 @@ def init_db():
     conn.close()
 
 # ---------- ROUTES ----------
+
+# HOME
 @app.route("/")
 def home():
     return render_template("index.html")
 
+# CONSULTATION
 @app.route("/consult", methods=["GET", "POST"])
 def consult():
     if request.method == "POST":
@@ -40,16 +43,18 @@ def consult():
         verdict = "Highly Recommended"
 
         return render_template(
-            "result.html",
+            "consultation.html",
             business=business,
             area=area,
             score=score,
             verdict=verdict
         )
 
-    return render_template("home.html")
+    return render_template("consultation.html")
 
+# ---------- DATABASE DEMO ----------
 
+# ADD PRODUCT
 @app.route("/add-product", methods=["GET", "POST"])
 def add_product():
     if request.method == "POST":
@@ -65,22 +70,11 @@ def add_product():
         conn.commit()
         conn.close()
 
-        return redirect("/products")
+        return redirect("/db-demo")
 
-    return render_template("add_product.html")
+    return render_template("db_demo.html")
 
-
-@app.route("/products")
-def products():
-    conn = get_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM products")
-    data = cur.fetchall()
-    conn.close()
-
-    return render_template("products.html", products=data)
-
-# ---------- DATABASE DEMO ----------
+# VIEW PRODUCTS (DB DEMO)
 @app.route("/db-demo")
 def db_demo():
     conn = get_connection()
@@ -88,9 +82,10 @@ def db_demo():
     cur.execute("SELECT * FROM products")
     data = cur.fetchall()
     conn.close()
+
     return render_template("db_demo.html", products=data)
 
-
+# DELETE PRODUCT
 @app.route("/delete/<int:id>")
 def delete_product(id):
     conn = get_connection()
@@ -98,12 +93,14 @@ def delete_product(id):
     cur.execute("DELETE FROM products WHERE id = ?", (id,))
     conn.commit()
     conn.close()
+
     return redirect("/db-demo")
 
-
+# UPDATE PRODUCT
 @app.route("/update/<int:id>", methods=["POST"])
 def update_product(id):
     new_price = request.form["price"]
+
     conn = get_connection()
     cur = conn.cursor()
     cur.execute(
@@ -112,13 +109,43 @@ def update_product(id):
     )
     conn.commit()
     conn.close()
+
     return redirect("/db-demo")
 
+# ---------- OTHER PAGES ----------
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+@app.route("/buyer")
+def buyer():
+    return render_template("buyerUI.html")
+
+@app.route("/supplier")
+def supplier():
+    return render_template("supplierUI.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/register")
+def register():
+    return render_template("registration.html")
+
+@app.route("/marketplace")
+def marketplace():
+    return render_template("marketplace.html")
 
 # ---------- MAIN ----------
+
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=10000, debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+
 
 
 
