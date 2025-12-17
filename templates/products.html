@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h2>Available Products</h2>
+
+    {% for p in products %}
+        <p>{{ p[1] }} — ₹{{ p[2] }}</p>
+    {% endfor %}
+
+    <br>
+    <a href="/">Back</a>
+</body>
+</html>
+
